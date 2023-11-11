@@ -21,14 +21,14 @@ here:
 				break;
 			case 's':
 
-				x += strlen(va_arg(args, char *));
+				x += _strlen(va_arg(args, char *));
 				break;
 			case 'd':
 
 				x++;
 				break;
 			case '%':
-				putchar('%');
+				_putchar('%');
 				x++;
 				break;
 			default:
