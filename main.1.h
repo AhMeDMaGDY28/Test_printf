@@ -18,4 +18,8 @@ typedef struct specs
 } specs;
 int _printf(const char *format, ...);
 char *_puts(char *string);
+_strlen(char *s);
+_putchar(char c);
+
+
 #endif
