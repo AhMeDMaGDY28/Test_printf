@@ -16,10 +16,12 @@ typedef struct specs
 	char spec;
 	int (*f)(va_list);
 } specs;
+
 int _printf(const char *format, ...);
-char *_puts(char *string);
-_strlen(char *s);
-_putchar(char c);
+int _strlen(char *s);
+int _putchar(char c);
+int print_string(va_list args);
+int print_number(va_list args);
 
 
 #endif
