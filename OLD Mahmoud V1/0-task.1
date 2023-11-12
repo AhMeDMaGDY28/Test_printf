@@ -6,15 +6,13 @@
  */
 int _printf(const char *format, ...)
 {
-	int len = 0, ct1 = 0, ct2 = 0, flag, ct3 = 0;
-	char buff[1024];
+	int len = 0, ct1 = 0, ct2 = 0, flag;
 	specs sp[] = {
 	{"%c", print_char}, {"%s", print_string}, {"%%", print_percent},
 	{"%d", print_number}, {"%i", print_number}, {NULL, NULL},
 	};
 	va_list args;
 
-	buff[1023] = '\0';
 	va_start(args, format);
 	while (format[ct1] && format)
 	{
@@ -39,9 +37,8 @@ int _printf(const char *format, ...)
 		}
 		if (flag > 0)
 		{
-			buff[ct3] = format[ct1];
+			_putchar(format[ct1]);
 			ct1++;
-			ct3++;
 			len++;
 		}
 	}
