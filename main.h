@@ -24,9 +24,11 @@ typedef struct flags
 } flags;
 
 int _printf(const char *format, ...);
-int _strlen(char *s);
+char *_puts(char *string);
 int _putchar(char c);
 int print_string(va_list args);
+int print_percent(void);
+int print_char(va_list args);
 int print_number(va_list args);
 
 #endif
