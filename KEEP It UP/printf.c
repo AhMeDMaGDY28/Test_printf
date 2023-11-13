@@ -16,7 +16,7 @@ int _printf(const char *format, ...)
 	{
 		return (-1);
 	}
-	if (format[0] == '%' && format[1] == ' ' && format[2])
+	if (format[0] == '%' && format[1] == ' ' && !format[2])
 	{
 		return (-1);
 	}
@@ -37,8 +37,9 @@ int _printf(const char *format, ...)
 		o = perc(o, &factor, args);
 		if (mods(o, &factor))
 			o++;
-		if (spec(o))
-			len += print_segment(front, o, factor.mod_l || factor.mod_h ? o - 1 : 0);
+		if (!spec(o))
+			len += print_segment(front, o,
+			factor.mod_l || factor.mod_h ? o - 1 : 0);
 		else
 			len += chose_print_fun(o, args, &factor);
 	}
