@@ -34,7 +34,7 @@ int _printf(const char *format, ...)
 			o++;
 		}
 		o = width(o, &factor, args);
-		o = percs(o, &factor, args);
+		o = perc(o, &factor, args);
 		if (mods(o, &factor))
 			o++;
 		if (spec(o))

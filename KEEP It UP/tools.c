@@ -103,7 +103,7 @@ int print_no_right_justified(char *s, facts *factor)
 	else if (factor->plus_f && factor->space_f &&
 	!sign_b && !factor->un_sign && !factor->zero_f)
 		len += _putchar(' ');
-	len += _putchar(s);
+	len += _puts(s);
 	return (len);
 }
 /**

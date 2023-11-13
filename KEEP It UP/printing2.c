@@ -99,7 +99,7 @@ int print_stringhex(va_list args, facts *factor)
 	int len = 0;
 
 	if ((int)(!s))
-		return (_putchar(NULL_STRING));
+		return (_puts(NULL_STRING));
 	for (; *s; s++)
 	{
 		if ((*s > 0 && *s < 32) || *s >= 127)

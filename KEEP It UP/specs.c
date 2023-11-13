@@ -8,30 +8,31 @@ int (*spec(char *s))(va_list args, facts *f)
 {
 	int g = 0;
 	specs specses[] = {
-		{'c', print_ch},
-		{'d', print_num},
-		{'i', print_num},
-		{'s', print_string},
-		{'%', print_percent},
-		{'b', print_bi},
-		{'o', print_octs},
-		{'u', print_unsign},
-		{'x', print_low_hexes},
-		{'X', print_up_hexes},
-		{'p', print_adrs},
-		{'S', print_stringhex},
-		{'r', print_rever},
-		{'R', print_rot13},
+		{"c", print_ch},
+		{"d", print_num},
+		{"i", print_num},
+		{"s", print_string},
+		{"%", print_percent},
+		{"b", print_bi},
+		{"o", print_octs},
+		{"u", print_unsign},
+		{"x", print_low_hexes},
+		{"X", print_up_hexes},
+		{"p", print_adrs},
+		{"S", print_stringhex},
+		{"r", print_rever},
+		{"R", print_rot13},
 		{NULL, NULL}
 	};
 	while (specses[g].sp)
 	{
-		if (*s == specses[g].sp)
+		if (*s == specses[g].sp[0])
 		{
 			return (specses[g].f);
 		}
 		g++;
 	}
+	return (NULL);
 }
 /**
  * chose_print_fun - selects the appropriate func

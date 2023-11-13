@@ -7,7 +7,7 @@
 #include <stdlib.h>
 #define BUFF_LIMIT 1024
 #define BUFF_FLUSHING -1
-#define UNUSED void(x)
+#define UNUSED(x) (void)(x)
 
 #define FACTORS_N {0, 0, 0, 0, 0, 0, 0, 0, 0, 0}
 
@@ -15,16 +15,6 @@
 #define CONV_USIGN 2
 
 #define NULL_STRING "(null)"
-/**
- * struct sepcifiers - to select appropriate func
- * @sp: specifier
- * @f: pointer to according func
- */
-typedef struct sepcifiers
-{
-	char sp;
-	int (*f)(va_list, facts *);
-} specs;
 /**
  * struct factors - to specify factor
  * @un_sign: unsigned
@@ -46,19 +36,29 @@ typedef struct factors
 	unsigned int hash_f :1;
 	unsigned int zero_f :1;
 	unsigned int minus_f :1;
-	unsigned int width_p :1;
-	unsigned int percs :1;
+	unsigned int width_p;
+	unsigned int percs;
 	unsigned int mod_h :1;
 	unsigned int mod_l :1;
 } facts;
+/**
+ * struct sepcifiers - to select appropriate func
+ * @sp: specifier
+ * @f: pointer to according func
+ */
+typedef struct sepcifiers
+{
+	char *sp;
+	int (*f)(va_list, facts *);
+} specs;
 int _printf(const char *format, ...);
 int _puts(char *s);
 int _putchar(int i);
-int print_ch(va_list args, facts *f);
+int print_ch(va_list args, facts *factor);
 int print_num(va_list args, facts *f);
-int print_string(va_list args, facts *f);
-int print_percent(va_list args, facts *f);
-int print_stringhex(va_list args, facts *f);
+int print_string(va_list args, facts *factor);
+int print_percent(va_list args, facts *factor);
+int print_stringhex(va_list args, facts *factor);
 
 char *conv(long int i, int b, int flag, facts *factor);
 int print_unsign(va_list args, facts *factor);
@@ -84,6 +84,6 @@ int print_no(char *s, facts *factor);
 int print_no_right_justified(char *s, facts *factor);
 int print_no_left_justified(char *s, facts *f);
 void fact(facts *f, va_list args);
-char *perc(char *o, facts *factor, va_list *f);
+char *perc(char *o, facts *factor, va_list args);
 
 #endif

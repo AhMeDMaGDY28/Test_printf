@@ -6,7 +6,7 @@
  * @args: arguments
  * Return: point to next char
 */
-char *perc(char *o, facts *factor, va_list *args)
+char *perc(char *o, facts *factor, va_list args)
 {
 	int r = 0;
 
@@ -24,5 +24,5 @@ char *perc(char *o, facts *factor, va_list *args)
 			r = r * 10 + (*o++ - '0');
 	}
 	factor->percs = r;
-	return (r);
+	return (o);
 }
