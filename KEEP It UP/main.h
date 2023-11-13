@@ -70,10 +70,10 @@ int flags(char *s, facts *factor);
 int mods(char *s, facts *factor);
 char *width(char *s, facts *factor, va_list args);
 
-int print_low_hexes(va_list args, facts *f);
+int print_low_hexes(va_list args, facts *factor);
 int print_up_hexes(va_list args, facts *f);
-int print_bi(va_list args, facts *f);
-int print_octs(va_list args, facts *f);
+int print_bi(va_list args, facts *factor);
+int print_octs(va_list args, facts *factor);
 int print_segment(char *front, char *end, char *out);
 int print_rever(va_list args, facts *factor);
 int print_rot13(va_list args, facts *factor);

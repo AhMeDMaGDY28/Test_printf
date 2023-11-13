@@ -106,3 +106,30 @@ int print_no_right_justified(char *s, facts *factor)
 	len += _putchar(s);
 	return (len);
 }
+/**
+ * print_no_left_justified - prints num to right
+ * @s: num as string
+ * @factor: struct factor
+ * Return: num of bytes printed
+ */
+int print_no_left_justified(char *s, facts *factor)
+{
+	unsigned int len = 0, sign_a, sign_b, l = _strlen(s);
+	char pad = ' ';
+
+	if (factor->zero_f && !factor->minus_f)
+		pad = '0';
+	sign_a = sign_b = (!factor->un_sign && *s == '-');
+	if (sign_a && l < factor->width_p && pad == '0' && !factor->minus_f)
+		s++;
+	else
+		sign_a = 0;
+	if (factor->plus_f && !sign_b && !factor->un_sign)
+		len += _putchar('+'), l++;
+	else if (factor->space_f && !sign_b && !factor->un_sign)
+		len += _putchar(' '), l++;
+	len += _puts(s);
+	while (l++ < factor->width_p)
+		len += _putchar(pad);
+	return (len);
+}
