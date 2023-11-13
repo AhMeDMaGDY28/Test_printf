@@ -14,9 +14,9 @@ char *conv(long int i, int b, int flag, facts *factor)
 	char neg = 0;
 	char *p;
 	unsigned long j = i;
+	(void)factor;
 
-	UNUSED(factor);
-	if ((flag & CONV_USIGN) && i < 0)
+	if (!(flag & CONV_USIGN) && i < 0)
 	{
 		j = -i;
 		neg = '-';
@@ -24,11 +24,10 @@ char *conv(long int i, int b, int flag, facts *factor)
 	a = flag & CONV_LOW_C ? "0123456789abcdef" : "0123456789ABCDEF";
 	p = &box[49];
 	*p = '\0';
-	while (j != 0)
-	{
+	do {
 		*--p = a[j % b];
 		j /= b;
-	}
+	} while (j != 0);
 	if (neg)
 	{
 		*--p = neg;

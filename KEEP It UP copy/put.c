@@ -6,14 +6,13 @@
  */
 int _puts(char *s)
 {
-	int len = 0;
+	char *f = s;
 
 	while (*s)
 	{
 		_putchar(*s++);
-		len++;
 	}
-	return (len);
+	return (s - f);
 }
 /**
  * _putchar - writes to std output
@@ -30,10 +29,7 @@ int _putchar(int i)
 		write(1, buffer, j);
 		j = 0;
 	}
-	if (i == BUFF_FLUSHING)
-	{
-		return (1);
-	}
-	buffer[j++] = i;
+	if (i != BUFF_FLUSHING)
+		buffer[j++] = i;
 	return (1);
 }

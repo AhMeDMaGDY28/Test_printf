@@ -4,9 +4,8 @@
  * @s: character checked
  * Return: num of bytes printed
  */
-int (*spec(char *s))(va_list args, facts *f)
+int (*spec(char *s))(va_list args, facts *factor)
 {
-	int g = 0;
 	specs specses[] = {
 		{"c", print_ch},
 		{"d", print_num},
@@ -24,6 +23,8 @@ int (*spec(char *s))(va_list args, facts *f)
 		{"R", print_rot13},
 		{NULL, NULL}
 	};
+	int g = 0;
+
 	while (specses[g].sp)
 	{
 		if (*s == specses[g].sp[0])
@@ -61,25 +62,23 @@ int flags(char *s, facts *factor)
 {
 	int r = 0;
 
-	if (*s == '+')
+	switch (*s)
 	{
-		r = factor->plus_f = 1;
-	}
-	else if (*s == ' ')
-	{
-		r = factor->space_f = 1;
-	}
-	else if (*s == '#')
-	{
-		r = factor->hash_f = 1;
-	}
-	else if (*s == '-')
-	{
-		r = factor->minus_f = 1;
-	}
-	else if (*s == '0')
-	{
-	r = factor->zero_f = 1;
+		case '+':
+			r = factor->plus_f = 1;
+			break;
+		case ' ':
+			r = factor->space_f = 1;
+			break;
+		case '#':
+			r = factor->hash_f = 1;
+			break;
+		case '-':
+			r = factor->minus_f = 1;
+			break;
+		case '0':
+			r = factor->zero_f = 1;
+			break;
 	}
 	return (r);
 }
@@ -91,15 +90,16 @@ int flags(char *s, facts *factor)
  */
 int mods(char *s, facts *factor)
 {
-	int r;
+	int r = 0;
 
-	if (*s == 'h')
+	switch (*s)
 	{
-		r = factor->mod_h = 1;
-	}
-	else if (*s == 'l')
-	{
-		r = factor->mod_h = 1;
+		case 'h':
+			r = factor->mod_h = 1;
+			break;
+		case 'l':
+			r = factor->mod_l = 1;
+			break;
 	}
 	return (r);
 }

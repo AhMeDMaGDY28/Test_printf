@@ -64,7 +64,7 @@ char *conv(long int i, int b, int flag, facts *factor);
 int print_unsign(va_list args, facts *factor);
 int print_adrs(va_list args, facts *factor);
 
-int (*spec(char *s))(va_list args, facts *f);
+int (*spec(char *s))(va_list args, facts *factor);
 int chose_print_fun(char *s, va_list args, facts *factor);
 int flags(char *s, facts *factor);
 int mods(char *s, facts *factor);

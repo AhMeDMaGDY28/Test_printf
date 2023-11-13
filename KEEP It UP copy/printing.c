@@ -28,8 +28,8 @@ int print_rever(va_list args, facts *factor)
 {
 	int len = 0, strlen = 0;
 	char *a = va_arg(args, char *);
+	(void)factor;
 
-	UNUSED(factor);
 	if (a)
 	{
 		while (a[strlen])

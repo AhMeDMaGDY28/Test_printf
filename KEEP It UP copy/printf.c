@@ -26,6 +26,7 @@ int _printf(const char *format, ...)
 		if (*o != '%')
 		{
 			len += _putchar(*o);
+			continue;
 		}
 		front = o;
 		o++;
@@ -38,8 +39,7 @@ int _printf(const char *format, ...)
 		if (mods(o, &factor))
 			o++;
 		if (!spec(o))
-			len += print_segment(front, o,
-			factor.mod_l || factor.mod_h ? o - 1 : 0);
+			len += print_segment(front, o, factor.mod_l || factor.mod_h ? o - 1 : 0);
 		else
 			len += chose_print_fun(o, args, &factor);
 	}

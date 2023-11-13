@@ -16,5 +16,5 @@ void fact(facts *factor, va_list args)
 	factor->percs = UINT_MAX;
 	factor->mod_h = 0;
 	factor->mod_l = 0;
-	UNUSED(args);
+	(void)args;
 }
