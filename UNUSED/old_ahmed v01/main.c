@@ -40,10 +40,5 @@ int main(void)
 	printf("Len:[%d]\n", len2);
 	_printf("Unknown:[%r]\n");
 	printf("Unknown:[%r]\n");
-<<<<<<<< HEAD:versions/OLD Mahmoud V1/main.c
-	printf(NULL);
-========
-	printf("%s\n", NULL);
->>>>>>>> 38d8d79 (SADAT NEW):UNUSED/OLD Mahmoud V1/main.c
 	return (0);
 }
