@@ -92,7 +92,7 @@ int print_no_right_justified(char *s, facts *factor)
 	if (factor->plus_f && !sign_b && pad == '0' && !factor->un_sign)
 		len += _putchar('+');
 	else if (!factor->plus_f && factor->space_f && !sign_b &&
-	!factor->un_sign && factor->zero_f)
+		!factor->un_sign && factor->zero_f)
 		len += _putchar(' ');
 	while (l++ < factor->width_p)
 		len += _putchar(pad);
@@ -100,8 +100,8 @@ int print_no_right_justified(char *s, facts *factor)
 		len += _putchar('-');
 	if (factor->plus_f && !sign_b && pad == ' ' && !factor->un_sign)
 		len += _putchar('+');
-	else if (factor->plus_f && factor->space_f &&
-	!sign_b && !factor->un_sign && !factor->zero_f)
+	else if (!factor->plus_f && factor->space_f &&
+		!sign_b && !factor->un_sign && !factor->zero_f)
 		len += _putchar(' ');
 	len += _puts(s);
 	return (len);
