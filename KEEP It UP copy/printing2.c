@@ -46,14 +46,16 @@ int print_string(va_list args, facts *factor)
 {
 	char *s = va_arg(args, char *), pad = ' ';
 	unsigned int n_pad = 0, len = 0, a = 0, b;
+	(void)factor;
 
-	UNUSED(factor);
 	switch ((int)(!s))
 		case 1:
 			s = NULL_STRING;
+
 	b = n_pad = _strlen(s);
 	if (factor->percs < n_pad)
 		b = n_pad = factor->percs;
+
 	if (factor->minus_f)
 	{
 		if (factor->percs != UINT_MAX)
@@ -82,8 +84,8 @@ int print_string(va_list args, facts *factor)
  */
 int print_percent(va_list args, facts *factor)
 {
-	UNUSED(args);
-	UNUSED(factor);
+	(void)args;
+	(void)factor;
 	return (_putchar('%'));
 }
 /**

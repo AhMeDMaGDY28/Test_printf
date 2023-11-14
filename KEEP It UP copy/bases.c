@@ -17,6 +17,7 @@ int print_low_hexes(va_list args, facts *factor)
 		h = (unsigned short int)va_arg(args, unsigned int);
 	else
 		h = (unsigned int)va_arg(args, unsigned int);
+
 	s = conv(h, 16, CONV_USIGN | CONV_LOW_C, factor);
 	if (factor->hash_f && h)
 	{
@@ -44,6 +45,7 @@ int print_up_hexes(va_list args, facts *factor)
 		h = (unsigned short int)va_arg(args, unsigned int);
 	else
 		h = (unsigned int)va_arg(args, unsigned int);
+	
 	s = conv(h, 16, CONV_USIGN, factor);
 	if (factor->hash_f && h)
 	{
